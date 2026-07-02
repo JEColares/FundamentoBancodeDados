@@ -1,5 +1,5 @@
 from fastapi import APIRouter,HTTPException
-from db import get_conection
+from db import get_connection
 from models import DesenvolvedorUpdate,Desenvolvedora
 from typing import List, Optional
 
@@ -7,7 +7,7 @@ router =  APIRouter()
 
 @router.post("/")
 async def criar_desenvolvedora(des: Desenvolvedora):
-    conn = get_conection()
+    conn = get_connection()
     cur = conn.cursor()
 
     try:
@@ -30,7 +30,7 @@ async def criar_desenvolvedora(des: Desenvolvedora):
 
 @router.get("/{id_desenvolvedora}")
 async def listar_desenvolvedoras_by_id(id_desenvolvedora:int):
-    conn = get_conection()
+    conn = get_connection()
     cur = conn.cursor()
 
     try:
@@ -56,7 +56,7 @@ async def listar_desenvolvedoras_by_id(id_desenvolvedora:int):
     
 @router.get("/")
 async def listar_desenvolvedoras():
-    conn = get_conection()
+    conn = get_connection()
     cur = conn.cursor()
 
     query = """
@@ -80,7 +80,7 @@ async def listar_desenvolvedoras():
 @router.put("/{id_desenvolvedora}")
 async def atualizar_desenvolvedora(id_desenvolvedora: int, des: DesenvolvedorUpdate):
     # Garanta que o nome do modelo está como DesenvolvedorUpdate (conforme seu import no topo do arquivo)
-    conn = get_conection()
+    conn = get_connection()
     cur = conn.cursor()
 
     try:
@@ -107,7 +107,7 @@ async def atualizar_desenvolvedora(id_desenvolvedora: int, des: DesenvolvedorUpd
 
 @router.delete("/{id_desenvolvedora}")
 async def deletar_desenvolvedora(id_desenvolvedora: int):
-    conn = get_conection()
+    conn = get_connection()
     cur = conn.cursor()
 
     try:
