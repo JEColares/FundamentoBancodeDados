@@ -18,16 +18,12 @@ class usuarioUpdate(BaseModel):
     email: Optional[str] = None
     nickname: Optional[str] = None
 
-
-
-# Modelo
-#class Departamento(BaseModel):
-#    dnumero: int
-#    dnome: str
-#    cpf_gerente: None
-#    data_inicio_gerente: None
-
-#class DepartamentoUpdate():
-#    dnome: str
-#    cpf_gerente: Optional[str] = None
-#    data_inicio_gerente: Optional[date] = None
+class Desenvolvedora(BaseModel):
+    id_desenvolvedora : int
+    comissao_plat : Optional[str] = None
+    razao_social : str
+    cnpj:str
+class DesenvolvedorUpdate(BaseModel):
+    comissao_plat : Optional[str] = None
+    razao_social: str
+    cnpj:str
