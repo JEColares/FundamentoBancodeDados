@@ -23,6 +23,7 @@ class Desenvolvedora(BaseModel):
     comissao_plat : Optional[str] = None
     razao_social : str
     cnpj:str
+    
 class DesenvolvedorUpdate(BaseModel):
     comissao_plat : Optional[str] = None
     razao_social: str
