@@ -6,7 +6,7 @@ from typing import List, Optional
 
 router = APIRouter()
 
-@router.post("/usuario")
+@router.post("/")
 async def criar_usuario(user: usuario):
     conn = get_connection()
     cur = conn.cursor()
@@ -29,7 +29,7 @@ async def criar_usuario(user: usuario):
     return {"msg": "Usuario criado com SUCESSO"}
 
 
-@router.get("/usuario")
+@router.get("/")
 async def listar_usuarios():
     conn = get_connection()
     cur = conn.cursor()
@@ -48,7 +48,7 @@ async def listar_usuarios():
         ) for d in rows
     ]
 
-@router.get("/usuario/{id_user}")
+@router.get("/{id_user}")
 async def buscar_usuario(id_user: int):
     conn = get_connection()
     cur = conn.cursor()
@@ -68,7 +68,7 @@ async def buscar_usuario(id_user: int):
         nickname=row[5]
     )
 
-@router.put("/usuario/{id_user}")
+@router.put("/{id_user}")
 async def atualizar_usuario(id_user: int, user: usuarioUpdate):
     conn = get_connection()
     cur = conn.cursor()
@@ -90,7 +90,7 @@ async def atualizar_usuario(id_user: int, user: usuarioUpdate):
 
 
 
-@router.delete("/usuario/{id_user}")
+@router.delete("/{id_user}")
 async def deletar_usuario(id_user: int):
     conn = get_connection()
     cur = conn.cursor()
